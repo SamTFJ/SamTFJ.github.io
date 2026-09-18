@@ -1,0 +1,21 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+  role="img"
+  aria-labelledby="title"
+>
+  <title id="title">Samuel Jales monogram</title>
+  <rect width="512" height="512" rx="112" fill="#111214" />
+  <path
+    d="M302 128C272 94 208 85 166 113C118 145 130 205 187 223L276 251C335 270 355 330 330 370C320 385 310 395 300 400"
+    fill="none"
+    stroke="#F5F5F2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="50"
+  />
+  <path
+    d="M388 71C401.8 71 413 82.2 413 96V280C413 345 380 392 318 424C260 454 173 448 106 416C91 409 86 391 94 377C102 363 119 357 133 364C180 387 241 397 285 376C335 352 363 319 363 280V96C363 82.2 374.2 71 388 71Z"
+    fill="#F5F5F2"
+  />
+</svg>

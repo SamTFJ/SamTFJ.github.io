@@ -35,13 +35,19 @@ export function HeroNetwork() {
 
         const updateDimensions = () => {
             if (!container || !canvas) return
-            dpr = window.devicePixelRatio || 1
-            width = container.clientWidth
-            height = container.clientHeight
+            const nextDpr = window.devicePixelRatio || 1
+            const nextWidth = container.clientWidth
+            const nextHeight = container.clientHeight
+
+            if (nextWidth === width && nextHeight === height && nextDpr === dpr) return
+
+            dpr = nextDpr
+            width = nextWidth
+            height = nextHeight
 
             canvas.width = width * dpr
             canvas.height = height * dpr
-            ctx.scale(dpr, dpr)
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
         }
 
         updateDimensions()
@@ -88,7 +94,7 @@ export function HeroNetwork() {
         }
 
         let angleY = 0
-        let angleX = 0.15
+        const angleX = 0.15
 
         const render = () => {
             if (width === 0 || height === 0) return
@@ -111,13 +117,13 @@ export function HeroNetwork() {
 
                 const cosY = Math.cos(angleY)
                 const sinY = Math.sin(angleY)
-                let x1 = nx * cosY - nz * sinY
-                let z1 = nz * cosY + nx * sinY
+                const x1 = nx * cosY - nz * sinY
+                const z1 = nz * cosY + nx * sinY
 
                 const cosX = Math.cos(angleX)
                 const sinX = Math.sin(angleX)
-                let y2 = ny * cosX - z1 * sinX
-                let z2 = z1 * cosX + ny * sinX
+                const y2 = ny * cosX - z1 * sinX
+                const z2 = z1 * cosX + ny * sinX
 
                 const scale = 700 / (700 + z2)
                 const baseScreenX = centerX + x1 * scale
@@ -209,7 +215,12 @@ export function HeroNetwork() {
     }, [])
 
     return (
-        <div ref={containerRef} className="relative w-full h-[45vh] min-h-[300px] overflow-hidden select-none animate-fade-in delay-300">
+        <div
+            ref={containerRef}
+            data-hero-network
+            aria-hidden="true"
+            className="relative w-full h-[45vh] min-h-[300px] overflow-hidden select-none animate-fade-in delay-300"
+        >
             {/* Gradient fade overlay dynamically adapting to theme card background */}
             <div className="absolute inset-0 bg-gradient-to-b from-card via-card/60 to-transparent z-10 pointer-events-none h-40 transition-colors duration-300" />
             

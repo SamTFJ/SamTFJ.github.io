@@ -72,7 +72,7 @@
 
 .dark {
   /* Dark Theme */
-  --background: #070708;
+  --background: #ffffff;          /* white outer canvas contrasts with dark card */
   --foreground: #f5f5f3;          /* off-white text */
   --card: #141518;                /* deep charcoal card */
   --card-foreground: #f5f5f3;
@@ -103,6 +103,13 @@
 
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
